@@ -42,6 +42,8 @@ function concatPivot(fourierX, fourierY){
   let fourierBig = fourierX.concat(fourierY);  
   for (let i = fourierX.length; i < (fourierY.length + fourierX.length) ; i++){    
     fourierBig[i].phase += HALF_PI;    
+    fourierBig[i].re = fourierBig[i].amp * cos(fourierBig[i].phase);  
+    fourierBig[i].im = fourierBig[i].amp * sin(fourierBig[i].phase);  
   }  
   return fourierBig;
 }
